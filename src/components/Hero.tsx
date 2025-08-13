@@ -4,38 +4,45 @@ import heroImage from "@/assets/hero-cleaning.jpg";
 import teamImage from "@/assets/team-cleaning.jpg";
 
 const Hero = () => {
+  const handleGetQuote = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="home" className="bg-background py-16 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="flex items-center gap-2 text-primary">
+          <div className="space-y-6 animate-slide-in-left">
+            <div className="flex items-center gap-2 text-primary animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <CheckCircle className="h-5 w-5" />
               <span className="text-sm font-medium">The Best Cleaning Services Solution</span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight animate-fade-in" style={{ animationDelay: '0.4s' }}>
               Professional Cleaning
               <br />
               <span className="text-primary">Services Provider</span>
             </h1>
             
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               sed do eiusmod tempor incididunt ut labore et dolore.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold px-8 py-3">
-                Explore More <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+              <Button 
+                onClick={handleGetQuote}
+                className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold px-8 py-3 transition-all duration-300 hover:scale-105"
+              >
+                Get Free Quote <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 transition-all duration-300 hover:scale-105">
                 View All Services
               </Button>
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative animate-slide-in-right">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative">
