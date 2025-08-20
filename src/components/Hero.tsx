@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import heroImage from "@/assets/hero-cleaning.jpg";
-import teamImage from "@/assets/team-cleaning.jpg";
+// Using placeholder images for better visual appeal
+const heroImage = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop";
+const teamImage = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&h=500&fit=crop";
 
 const Hero = () => {
   const handleGetQuote = () => {
@@ -9,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="bg-background py-16 lg:py-24 mb-16 scroll-mt-20">
+    <section id="home" className="bg-background py-16 lg:py-24 mb-4 scroll-mt-20">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-slide-in-left">
@@ -18,13 +19,13 @@ const Hero = () => {
               <span className="text-sm font-medium">The Best Cleaning Services Solution</span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in" style={{ animationDelay: '0.4s' }}>
               Professional Cleaning
               <br />
               <span className="text-primary">Services Provider</span>
             </h1>
             
-            <p className="text-muted-foreground text-lg leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <p className="text-muted-foreground text-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
               Transform your space with our expert cleaning services. We deliver spotless results 
               using eco-friendly products, backed by 15+ years of experience and 100% satisfaction guarantee.
             </p>
@@ -53,14 +54,14 @@ const Hero = () => {
                   <img 
                     src={heroImage} 
                     alt="Professional cleaning service" 
-                    className="rounded-2xl w-full h-64 object-cover"
+                    className="rounded-2xl w-full h-96 object-cover"
                   />
                   <div className="absolute bottom-4 left-4 bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm font-medium">
                     Professional Teams
                   </div>
                 </div>
-                <div className="bg-accent text-accent-foreground p-4 rounded-2xl text-center">
-                  <div className="text-2xl font-bold">Affordable Pricing</div>
+                <div className="bg-accent text-accent-foreground p-2 rounded-xl text-center">
+                  <div className="text-lg font-bold">Affordable Pricing</div>
                 </div>
               </div>
               
@@ -68,7 +69,7 @@ const Hero = () => {
                 <img 
                   src={teamImage} 
                   alt="Cleaning team at work" 
-                  className="rounded-2xl w-full h-80 object-cover"
+                  className="rounded-2xl w-full h-96 object-cover"
                 />
               </div>
             </div>

@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, ChevronDown } from "lucide-react";
 
 const Header = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
     <header className="bg-background shadow-lg sticky top-0 z-50">
       {/* Top contact bar */}
@@ -41,6 +44,48 @@ const Header = () => {
             <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Projects</button>
             <button onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Testimonials</button>
             <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">About Us</button>
+            
+            <div className="relative">
+              <button 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center gap-1 text-foreground hover:text-primary font-medium transition-colors"
+              >
+                More <ChevronDown className="h-4 w-4" />
+              </button>
+              
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg border z-50">
+                  <button 
+                    onClick={() => {
+                      document.getElementById('why-choose-us')?.scrollIntoView({ behavior: 'smooth' });
+                      setIsDropdownOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-muted text-foreground hover:text-primary transition-colors"
+                  >
+                    Why Choose Us
+                  </button>
+                  <button 
+                    onClick={() => {
+                      document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' });
+                      setIsDropdownOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-muted text-foreground hover:text-primary transition-colors"
+                  >
+                    Service Coverage
+                  </button>
+                  <button 
+                    onClick={() => {
+                      document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+                      setIsDropdownOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-muted text-foreground hover:text-primary transition-colors rounded-b-lg"
+                  >
+                    Frequently Asked Questions
+                  </button>
+                </div>
+              )}
+            </div>
+            
             <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</button>
           </nav>
 

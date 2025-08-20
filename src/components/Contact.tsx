@@ -27,7 +27,20 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, show success message. Email functionality requires Supabase
+    
+    const emailBody = `
+New Quote Request:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}
+`;
+    
+    const mailtoLink = `mailto:vineworld050@gmail.com?subject=New Quote Request from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink);
+    
     toast({
       title: "Quote Request Sent!",
       description: "We'll get back to you within 24 hours with a personalized quote.",

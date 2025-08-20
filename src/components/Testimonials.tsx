@@ -1,8 +1,46 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight, User } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 const Testimonials = () => {
+  const [counts, setCounts] = useState({ clients: 0, years: 0, satisfaction: 0, support: 0 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  const animateCount = (target, key, suffix = '') => {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      setCounts(prev => ({ ...prev, [key]: Math.floor(current) }));
+    }, 30);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          setTimeout(() => animateCount(200, 'clients'), 500);
+          setTimeout(() => animateCount(15, 'years'), 700);
+          setTimeout(() => animateCount(100, 'satisfaction'), 900);
+          setTimeout(() => animateCount(24, 'support'), 1100);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -107,6 +145,14 @@ const Testimonials = () => {
                     </div>
                   </div>
                   
+                  <div className="absolute top-2 right-6">
+                    <img 
+                      src={`https://i.pravatar.cc/40?img=${(pageIndex * testimonialsPerPage + index) + 1}`}
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full object-cover border-2 border-accent"
+                    />
+                  </div>
+                  
                   <div className="mt-6 space-y-3">
                     <div className="flex">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -164,22 +210,22 @@ const Testimonials = () => {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div ref={sectionRef} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div className="animate-bounce-in" style={{ animationDelay: '0.5s' }}>
-            <div className="text-3xl font-bold text-primary">200+</div>
-            <div className="text-sm text-muted-foreground">Happy Clients</div>
+            <div className="text-5xl lg:text-6xl font-bold text-primary">{counts.clients}+</div>
+            <div className="text-base text-muted-foreground font-medium">Happy Clients</div>
           </div>
           <div className="animate-bounce-in" style={{ animationDelay: '0.7s' }}>
-            <div className="text-3xl font-bold text-primary">15+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
+            <div className="text-5xl lg:text-6xl font-bold text-primary">{counts.years}+</div>
+            <div className="text-base text-muted-foreground font-medium">Years Experience</div>
           </div>
           <div className="animate-bounce-in" style={{ animationDelay: '0.9s' }}>
-            <div className="text-3xl font-bold text-primary">100%</div>
-            <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+            <div className="text-5xl lg:text-6xl font-bold text-primary">{counts.satisfaction}%</div>
+            <div className="text-base text-muted-foreground font-medium">Satisfaction Rate</div>
           </div>
           <div className="animate-bounce-in" style={{ animationDelay: '1.1s' }}>
-            <div className="text-3xl font-bold text-primary">24/7</div>
-            <div className="text-sm text-muted-foreground">Customer Support</div>
+            <div className="text-5xl lg:text-6xl font-bold text-primary">{counts.support}/7</div>
+            <div className="text-base text-muted-foreground font-medium">Customer Support</div>
           </div>
         </div>
       </div>

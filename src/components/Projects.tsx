@@ -59,16 +59,18 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-muted/30 py-12 lg:py-16 mb-16 scroll-mt-20">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <p className="text-primary text-sm font-medium mb-4">— Latest Projects</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
             Explore Our Portfolio of
             <br />
             <span className="text-primary">Completed Projects</span>
           </h2>
-          <Button className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold">
-            View All Projects
-          </Button>
+          <div className="inline-flex items-center gap-3 text-yellow-600 font-bold">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-yellow-500 to-yellow-600"></div>
+            <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">View All Projects</span>
+            <div className="w-12 h-px bg-gradient-to-r from-yellow-600 via-yellow-500 to-transparent"></div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">

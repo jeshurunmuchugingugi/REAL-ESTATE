@@ -1,10 +1,10 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           {/* Logo and description */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -43,6 +43,25 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Business Info */}
+          <div className="space-y-4">
+            <h3 className="font-bold text-lg">Business Hours</h3>
+            <div className="space-y-2 text-sm text-primary-foreground/80">
+              <div>Mon - Fri: 8:00 AM - 6:00 PM</div>
+              <div>Saturday: 9:00 AM - 4:00 PM</div>
+              <div>Sunday: Closed</div>
+            </div>
+            
+            <div className="mt-4">
+              <h4 className="font-semibold mb-2">Certifications</h4>
+              <div className="space-y-1 text-xs text-primary-foreground/80">
+                <div>• Licensed & Insured</div>
+                <div>• Eco-Friendly Certified</div>
+                <div>• 15+ Years Experience</div>
+              </div>
+            </div>
+          </div>
+
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="font-bold text-lg">Contact Info</h3>
@@ -53,11 +72,38 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-accent" />
-                <span className="text-primary-foreground/80">example@gmail.com</span>
+                <span className="text-primary-foreground/80">vineworld050@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-accent" />
-                <span className="text-primary-foreground/80">123 Cleaning St, Service City</span>
+                <span className="text-primary-foreground/80">Nairobi, Kenya</span>
+              </div>
+            </div>
+            
+            <div className="mt-4">
+              <h4 className="font-semibold mb-2">Service Areas</h4>
+              <div className="text-xs text-primary-foreground/80">
+                <div>• Nairobi & Surrounding Areas</div>
+                <div>• Kiambu County</div>
+                <div>• Machakos County</div>
+              </div>
+            </div>
+            
+            <div className="mt-6">
+              <h4 className="font-semibold mb-3">Follow Us</h4>
+              <div className="flex gap-3">
+                <a href="#" className="w-8 h-8 bg-accent rounded-full flex items-center justify-center hover:bg-accent-hover transition-colors">
+                  <Facebook className="h-4 w-4 text-accent-foreground" />
+                </a>
+                <a href="#" className="w-8 h-8 bg-accent rounded-full flex items-center justify-center hover:bg-accent-hover transition-colors">
+                  <Twitter className="h-4 w-4 text-accent-foreground" />
+                </a>
+                <a href="#" className="w-8 h-8 bg-accent rounded-full flex items-center justify-center hover:bg-accent-hover transition-colors">
+                  <Instagram className="h-4 w-4 text-accent-foreground" />
+                </a>
+                <a href="#" className="w-8 h-8 bg-accent rounded-full flex items-center justify-center hover:bg-accent-hover transition-colors">
+                  <Linkedin className="h-4 w-4 text-accent-foreground" />
+                </a>
               </div>
             </div>
           </div>
