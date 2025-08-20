@@ -27,14 +27,38 @@ const Projects = () => {
     {
       image: houseImage,
       category: "Kitchen Cleaning",
-      title: "Modern Bungalow Kitchen Cleaning", 
+      title: "Modern Kitchen Cleaning", 
       description: "Professional kitchen maintenance"
+    },
+    {
+      image: officeImage,
+      category: "Office Cleaning",
+      title: "Corporate Tower Cleaning",
+      description: "Large-scale office maintenance"
+    },
+    {
+      image: houseImage,
+      category: "House Cleaning",
+      title: "Family Home Cleaning",
+      description: "Regular residential service"
+    },
+    {
+      image: officeImage,
+      category: "Deep Cleaning",
+      title: "Post-Construction Cleanup",
+      description: "Complete construction cleanup"
+    },
+    {
+      image: houseImage,
+      category: "Glass Cleaning",
+      title: "High-Rise Window Cleaning",
+      description: "Professional window service"
     }
   ];
 
   return (
     <section id="projects" className="bg-muted/30 py-16 lg:py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="text-center mb-12">
           <p className="text-primary text-sm font-medium mb-4">— Latest Projects</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
@@ -47,25 +71,29 @@ const Projects = () => {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
+            <Card 
+              key={index} 
+              className="group overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-medium">
                   {project.category}
                 </div>
-                <div className="absolute bottom-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
-                  <ArrowRight className="h-5 w-5" />
+                <div className="absolute bottom-3 right-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                  <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
-              <CardContent className="p-6">
-                <h3 className="font-bold text-lg text-foreground mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm">{project.description}</p>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-sm text-foreground mb-1 line-clamp-1">{project.title}</h3>
+                <p className="text-muted-foreground text-xs line-clamp-2">{project.description}</p>
               </CardContent>
             </Card>
           ))}
