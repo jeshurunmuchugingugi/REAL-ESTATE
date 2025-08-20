@@ -8,22 +8,22 @@ import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
+
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero />
-      <WorkProcess />
-      <Services />
-      <About />
-      
-      <Projects />
-      <Testimonials />
-      <Contact />
+      <main>
+        <Hero />
+        <WorkProcess />
+        <Services />
+        <About />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

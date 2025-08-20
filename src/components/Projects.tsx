@@ -4,8 +4,7 @@ import { ArrowRight } from "lucide-react";
 import officeImage from "@/assets/office-cleaning.jpg";
 import houseImage from "@/assets/house-cleaning.jpg";
 
-const Projects = () => {
-  const projects = [
+const projects = [
     {
       image: officeImage,
       category: "Office Cleaning",
@@ -56,8 +55,9 @@ const Projects = () => {
     }
   ];
 
+const Projects = () => {
   return (
-    <section id="projects" className="bg-muted/30 py-16 lg:py-20">
+    <section id="projects" className="bg-muted/30 py-12 lg:py-16 mb-16 scroll-mt-20">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="text-center mb-12">
           <p className="text-primary text-sm font-medium mb-4">— Latest Projects</p>
@@ -74,7 +74,7 @@ const Projects = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
           {projects.map((project, index) => (
             <Card 
-              key={index} 
+              key={project.title} 
               className="group overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >

@@ -68,8 +68,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
             <p>&copy; 2024 Cleaning Service. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
+              <a href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
+              <a href="/terms" className="hover:text-accent transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

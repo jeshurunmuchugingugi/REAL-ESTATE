@@ -8,13 +8,14 @@ import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     email: "", 
     phone: "",
     service: "",
     message: ""
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -31,24 +32,18 @@ const Contact = () => {
       title: "Quote Request Sent!",
       description: "We'll get back to you within 24 hours with a personalized quote.",
     });
-    setFormData({
-      name: "",
-      email: "", 
-      phone: "",
-      service: "",
-      message: ""
-    });
+    setFormData(initialFormData);
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       `Hi! I'm interested in your cleaning services. ${formData.service ? `Service needed: ${formData.service}` : ''}`
     );
-    window.open(`https://wa.me/+254721867609?text=${message}`, '_blank');
+    window.open(`https://wa.me/+2540722836384?text=${message}`, '_blank');
   };
 
   return (
-    <section id="contact" className="bg-background py-16 lg:py-20">
+    <section id="contact" className="bg-background py-16 lg:py-20 mb-16 scroll-mt-20">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="text-center mb-12 animate-fade-in">
           <p className="text-primary text-sm font-medium mb-4">— Get In Touch</p>
@@ -58,8 +53,8 @@ const Contact = () => {
             <span className="text-primary">Today!</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ready to experience professional cleaning? Fill out the form below or contact us directly 
-            for a personalized quote tailored to your needs.
+            Ready to experience professional cleaning? Get your <strong>FREE quote within 24 hours</strong>! 
+            Fill out the form below or contact us directly. <span className="text-primary font-semibold">Limited slots available this month.</span>
           </p>
         </div>
 

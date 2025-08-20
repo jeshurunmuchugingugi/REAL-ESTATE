@@ -7,23 +7,23 @@ const Services = () => {
     {
       icon: Home,
       title: "House Cleaning",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+      description: "Complete residential cleaning including bedrooms, bathrooms, living areas, and kitchens. We ensure every corner is spotless and sanitized.",
       isActive: true
     },
     {
       icon: Sparkles,
       title: "Glass Cleaning", 
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+      description: "Professional window and glass surface cleaning for crystal-clear results. We use streak-free techniques for perfect visibility."
     },
     {
       icon: ChefHat,
       title: "Kitchen Cleaning",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+      description: "Deep kitchen sanitization including appliances, countertops, and cabinets. We eliminate grease, grime, and bacteria for a hygienic cooking space."
     }
   ];
 
   return (
-    <section id="services" className="bg-primary text-primary-foreground py-16 lg:py-20">
+    <section id="services" className="bg-primary text-primary-foreground py-12 lg:py-16 mb-16 scroll-mt-20">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="text-center mb-12">
           <p className="text-accent text-sm font-medium mb-4">— Our Services</p>
@@ -32,14 +32,17 @@ const Services = () => {
             <br />
             <span className="text-accent">Cleaning Services</span>
           </h2>
-          <Button className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold mt-6">
+          <Button 
+            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold mt-6"
+          >
             View All Services <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Card key={index} className={`${
+          {services.map((service) => (
+            <Card key={service.title} className={`${
               service.isActive 
                 ? "bg-background text-foreground" 
                 : "bg-primary-light border-primary-light text-primary-foreground"

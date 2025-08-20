@@ -3,7 +3,7 @@ import { Phone, Mail } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-background shadow-sm sticky top-0 z-50">
+    <header className="bg-background shadow-lg sticky top-0 z-50">
       {/* Top contact bar */}
       <div className="bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
@@ -36,15 +36,19 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-foreground hover:text-primary font-medium transition-colors">Home</a>
-            <a href="#services" className="text-foreground hover:text-primary font-medium transition-colors">Services</a>
-            <a href="#projects" className="text-foreground hover:text-primary font-medium transition-colors">Projects</a>
-            <a href="#about" className="text-foreground hover:text-primary font-medium transition-colors">About Us</a>
-            <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</a>
+            <button onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Home</button>
+            <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Services</button>
+            <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Projects</button>
+            <button onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Testimonials</button>
+            <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">About Us</button>
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</button>
           </nav>
 
-          <Button className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold">
-            Get A Quote
+          <Button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold"
+          >
+            Get In Touch
           </Button>
         </div>
       </div>
