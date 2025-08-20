@@ -32,7 +32,7 @@ const WorkProcess = () => {
 
   return (
     <section className="bg-background py-16 lg:py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="text-center mb-12 animate-fade-in">
           <p className="text-primary text-sm font-medium mb-4">— Work Process</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">

@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <section id="about" className="bg-background py-16 lg:py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="relative w-80 h-80 mx-auto lg:mx-0">

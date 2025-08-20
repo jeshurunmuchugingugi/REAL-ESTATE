@@ -10,7 +10,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="bg-background py-16 lg:py-24">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-slide-in-left">
             <div className="flex items-center gap-2 text-primary animate-fade-in" style={{ animationDelay: '0.2s' }}>
