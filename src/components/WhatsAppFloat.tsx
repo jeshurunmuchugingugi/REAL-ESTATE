@@ -6,7 +6,7 @@ const WhatsAppFloat = () => {
     const message = encodeURIComponent(
       "Hi! I'm interested in your professional cleaning services. Could you please provide me with more information?"
     );
-    window.open(`https://wa.me/+254408555012?text=${message}`, '_blank');
+    window.open(`https://wa.me/+254721867609?text=${message}`, '_blank');
   };
 
   return (
