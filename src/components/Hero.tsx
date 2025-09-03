@@ -1,83 +1,65 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
-// Using placeholder images for better visual appeal
-const heroImage = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop";
-const teamImage = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&h=500&fit=crop";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const handleGetQuote = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const backgroundImages = [
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920&h=1080&fit=crop'
+  ];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   return (
-    <section id="home" className="bg-background py-16 lg:py-24 mb-4 scroll-mt-20">
-      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-slide-in-left">
-            <div className="flex items-center gap-2 text-primary animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <CheckCircle className="h-5 w-5" />
-              <span className="text-sm font-medium">The Best Cleaning Services Solution</span>
-            </div>
-            
-            <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              Professional Cleaning
-              <br />
-              <span className="text-primary">Services Provider</span>
-            </h1>
-            
-            <p className="text-muted-foreground text-xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              Transform your space with our expert cleaning services. We deliver spotless results 
-              using eco-friendly products, backed by 15+ years of experience and 100% satisfaction guarantee.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              <Button 
-                onClick={handleGetQuote}
-                className="bg-accent hover:bg-accent-hover text-accent-foreground font-semibold px-8 py-3 transition-all duration-300 hover:scale-105"
-              >
-                Get Free Quote <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                variant="outline" 
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 transition-all duration-300 hover:scale-105"
-              >
-                View All Services
-              </Button>
-            </div>
+    <section id="home" className="relative h-screen flex items-center justify-center">
+      {/* Luxury Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
+        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
+      ></div>
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      <div className="relative text-center text-white z-10 max-w-4xl mx-auto px-6">
+        <div className="mb-6">
+          <div className="inline-block px-4 py-2 bg-amber-600/20 border border-amber-500/30 rounded-full">
+            <span className="text-amber-300 text-sm font-medium tracking-wide">NAIROBI'S PREMIER LUXURY BROKERAGE</span>
           </div>
-          
-          <div className="relative animate-slide-in-right">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative">
-                  <img 
-                    src={heroImage} 
-                    alt="Professional cleaning service" 
-                    className="rounded-2xl w-full h-96 object-cover"
-                  />
-                  <div className="absolute bottom-4 left-4 bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm font-medium">
-                    Professional Teams
-                  </div>
-                </div>
-                <div className="bg-accent text-accent-foreground p-2 rounded-xl text-center">
-                  <div className="text-lg font-bold">Affordable Pricing</div>
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <img 
-                  src={teamImage} 
-                  alt="Cleaning team at work" 
-                  className="rounded-2xl w-full h-96 object-cover"
-                />
-              </div>
-            </div>
-            
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-80"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary rounded-full opacity-60"></div>
-          </div>
+        </div>
+        
+        <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-8">
+          Luxury Real Estate in
+          <br />
+          <span className="font-bold text-amber-400">Nairobi's Elite Neighborhoods</span>
+        </h1>
+        
+        <p className="text-xl lg:text-2xl text-gray-200 mb-6 font-medium leading-relaxed">
+          Exclusive properties in Lavington, Kilimani, Kileleshwa, Runda, Karen & Kitisuru
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Link to="/properties">
+            <Button className="bg-amber-600 hover:bg-amber-700 text-white px-10 py-6 text-xl font-bold border-0 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              Browse Listings
+            </Button>
+          </Link>
+          <Button 
+            variant="outline" 
+            className="border-3 border-white text-white hover:bg-white hover:text-black px-10 py-6 text-xl font-bold transform hover:scale-105 transition-all duration-300"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Contact a Broker
+          </Button>
         </div>
       </div>
     </section>

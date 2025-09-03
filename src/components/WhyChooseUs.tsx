@@ -1,47 +1,73 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Shield, Award, Users, Clock } from "lucide-react";
+
 const WhyChooseUs = () => {
+  const features = [
+    {
+      icon: Shield,
+      title: "Trusted Expertise",
+      description: "15+ years of proven success in the real estate market with thousands of satisfied clients."
+    },
+    {
+      icon: Award,
+      title: "Award-Winning Service",
+      description: "Recognized industry leader with multiple awards for excellence in customer service and sales."
+    },
+    {
+      icon: Users,
+      title: "Dedicated Team",
+      description: "Professional agents who are committed to understanding your needs and exceeding expectations."
+    },
+    {
+      icon: Clock,
+      title: "24/7 Support",
+      description: "Always available to answer questions and provide guidance throughout your real estate journey."
+    }
+  ];
+
   return (
-    <section id="why-choose-us" className="bg-background py-16 lg:py-20 mb-16 scroll-mt-24">
+    <section id="why-choose-us" className="py-20 bg-amber-600 text-white">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-6">
-            {/* EDIT: Section label */}
-            <p className="text-primary text-sm font-medium animate-fade-in">— Why Choose Us</p>
-            
-            {/* EDIT: Features section heading */}
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground animate-fade-in">
-              Choose Our <span className="text-primary">Green</span>
-              <br />
-              <span className="text-primary">Friendly Solutions</span>
-            </h2>
-            
-            {/* EDIT: Description paragraph */}
-            <p className="text-muted-foreground leading-relaxed mb-0 animate-fade-in">
-              We are committed to providing eco-friendly cleaning solutions that protect your family, 
-              pets, and the environment. Our green cleaning products are just as effective as traditional 
-              chemicals but without the harmful side effects.We are committed to providing eco-friendly cleaning solutions that protect your family, 
-              pets, and the environment. Our green cleaning products are just as effective as traditional 
-              chemicals but without the harmful side effects.We are committed to providing eco-friendly cleaning solutions that protect your family, 
-              pets, and the environment. 
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6">Why Choose RealEstate Pro?</h2>
+          <p className="text-2xl text-amber-100 max-w-2xl mx-auto font-medium">
+            We're not just another real estate company. Here's what sets us apart from the competition.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  <feature.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-lg text-amber-100 leading-relaxed font-medium">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-6">Ready to Experience the Difference?</h3>
+            <p className="text-amber-100 mb-8 text-xl font-medium">
+              Join thousands of satisfied clients who have trusted us with their real estate needs.
             </p>
-            
-            {/* EDIT: Subtitle */}
-            <h5 className="text-primary mt-0 font-semibold italic animate-fade-in">Sustainable & Safe Cleaning</h5>
-          </div>
-          
-          <div className="relative animate-fade-in">
-            <div className="relative w-full max-w-xl min-h-[400px] mx-auto lg:mx-0">
-              <img 
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
-                alt="Eco-friendly cleaning products" 
-                className="w-full h-full object-cover rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 rounded-2xl border-4 border-accent/30 shadow-xl"></div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg animate-bounce-in">
-                <span className="text-primary-foreground font-bold">✓</span>
-              </div>
-              <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-accent rounded-full shadow-lg animate-bounce-in"></div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-white text-amber-600 hover:bg-gray-100 font-bold px-12 py-4 text-xl rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                Get Started Today
+              </button>
+              <button 
+                onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-3 border-white text-white hover:bg-white hover:text-amber-600 font-bold px-12 py-4 text-xl rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                View Properties
+              </button>
             </div>
           </div>
         </div>

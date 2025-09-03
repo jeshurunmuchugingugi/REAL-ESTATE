@@ -1,17 +1,15 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ClientLogos from "@/components/ClientLogos";
+import FeaturedProperties from "@/components/FeaturedProperties";
 import Services from "@/components/Services";
+import FeaturedAgents from "@/components/FeaturedAgents";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
-
-import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
-import ServiceAreas from "@/components/ServiceAreas";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -19,17 +17,17 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <ClientLogos />
+        <FeaturedProperties />
         <Services />
-        <Projects />
-        <Testimonials />
+        <FeaturedAgents />
         <About />
         <WhyChooseUs />
-        <ServiceAreas />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 };

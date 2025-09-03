@@ -1,4 +1,4 @@
-# Real Estate Application
+# RealEstate Pro - Modern Real Estate Website
 
 ## Getting Started
 
@@ -29,6 +29,19 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Lucide React (for icons)
+
+## Features
+
+This real estate website includes:
+
+- **Property Search**: Advanced search functionality with filters
+- **Featured Properties**: Showcase of premium listings with image galleries
+- **Property Cards**: Detailed property information with pricing and specifications
+- **Real Estate Services**: Complete service offerings for buyers and sellers
+- **Client Testimonials**: Social proof from satisfied customers
+- **Responsive Design**: Mobile-first approach for all devices
+- **Modern UI**: Clean, professional design with smooth animations
 
 
 
